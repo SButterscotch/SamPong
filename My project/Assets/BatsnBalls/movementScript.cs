@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
     public float moveSpeed = 1000f;
     public int targetFPS = 360;
 
+    private float verticalInput;
     void Start()
     {
         Application.targetFrameRate = targetFPS;
@@ -22,14 +23,32 @@ public class MovementScript : MonoBehaviour
 
     void HandleMovementInput()
     {
-        float verticalInput = Input.GetKey(KeyCode.W) ? 50f : Input.GetKey(KeyCode.S) ? -50f : 0f;
-        if (Mathf.Abs(verticalInput) > 0) 
+        
+        moving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
+        
+        if (moving && Input.GetKey(KeyCode.W))
         {
-            moving = true;
-        }else
+            movement(50f);
+        }
+        else if (moving && Input.GetKey(KeyCode.S))
+        {
+            movement(-50f);
+        } else 
+        {
+            movement(0f);
+        }
+        
+    }
+
+    private void movement(float x){
+        verticalInput = x;
+        rb.velocity = new Vector2(rb.velocity.x, verticalInput * moveSpeed * Time.deltaTime);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("border"))
         {
             moving = false;
         }
-        rb.velocity = new Vector2(rb.velocity.x, verticalInput * moveSpeed * Time.deltaTime);
     }
 }

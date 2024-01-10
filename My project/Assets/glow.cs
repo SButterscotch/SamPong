@@ -20,9 +20,9 @@ public class glow : MonoBehaviour
         bool move = MovementScript.moving;
         if (move)
         {
-            lighting.intensity.value = 20;
+            lighting.intensity.value = 25f;
         }else{
-            lighting.intensity.value = 0;
+            lighting.intensity.value -= 0.5f;
         }
     }
 }
