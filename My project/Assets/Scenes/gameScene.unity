@@ -416,6 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f56c12747f9f44aa3dedc340a36e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: 
+  ExitName: 
 --- !u!1 &820688633
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,8 +814,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1243765471}
-  sceneChanger: {fileID: 0}
-  moveSpeed: 500
+  sceneChanger: {fileID: 756341464}
+  moveSpeed: 1000
+  speedChange: 50
 --- !u!50 &1243765471
 Rigidbody2D:
   serializedVersion: 4
@@ -1048,7 +1051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1387698778}
-  moveSpeed: 100
+  moveSpeed: 3000
+  increaseRate: 5
   ball: {fileID: 1243765467}
 --- !u!1 &1533178705
 GameObject:
@@ -1763,7 +1767,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2059499170}
-  moveSpeed: 100
+  moveSpeed: 1500
+  decreaseRate: 15
+  speedIncrease: 50
 --- !u!212 &2059499173
 SpriteRenderer:
   m_ObjectHideFlags: 0

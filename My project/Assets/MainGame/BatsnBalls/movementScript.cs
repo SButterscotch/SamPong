@@ -6,7 +6,7 @@ public class MovementScript : MonoBehaviour
 {
     static public bool moving;
     public Rigidbody2D rb;
-    public float moveSpeed = 1000f;  
+    public float moveSpeed, decreaseRate, speedIncrease;  
     private float verticalInput;
     void Start()
     {
@@ -16,6 +16,7 @@ public class MovementScript : MonoBehaviour
 
     void Update()
     {
+        
         HandleMovementInput();
     }
 
@@ -26,11 +27,11 @@ public class MovementScript : MonoBehaviour
         
         if (moving && Input.GetKey(KeyCode.W))
         {
-            Movement(50f);
+            Movement(1f);
         }
         else if (moving && Input.GetKey(KeyCode.S))
         {
-            Movement(-50f);
+            Movement(-1f);
         } else 
         {
             Movement(0f);
@@ -40,13 +41,25 @@ public class MovementScript : MonoBehaviour
 
     private void Movement(float x){
         verticalInput = x;
-        rb.velocity = new Vector2(0, verticalInput * moveSpeed * Time.deltaTime);
+        rb.velocity = new Vector2(0, (rb.velocity.y + moveSpeed) * verticalInput * Time.deltaTime);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 currScale = transform.localScale;
+
         if (collision.gameObject.CompareTag("border"))
         {
             moving = false;
         } 
+//decreases y scale everytime player hits ball, however increase speed to balance it
+
+        if (collision.gameObject.CompareTag("ball"))
+        {
+            currScale.y -= decreaseRate;
+            currScale.y = Mathf.Abs(currScale.y);
+            transform.localScale = currScale;
+
+            moveSpeed += speedIncrease;
+        }
     }
 }

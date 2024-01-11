@@ -11,13 +11,16 @@ public class glow : MonoBehaviour
     void Start()
     {
         gloww = GetComponent<PostProcessVolume>();
+      
         gloww.profile.TryGetSettings(out lighting);
+     
     }
 
     // Update is called once per frame
     void Update()
     {
         bool move = MovementScript.moving;
+        bool collided = ballMovement.collided;
         if (move)
         {
             lighting.intensity.value = 25f;
