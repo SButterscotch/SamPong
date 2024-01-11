@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovementScript : MonoBehaviour
 {
     static public bool moving;
+    static public int currentScore;
     public Rigidbody2D rb;
     public float moveSpeed, decreaseRate, speedIncrease;  
     private float verticalInput;
+
+
     void Start()
     {
         
         rb = GetComponent<Rigidbody2D>();
+        currentScore =0;
     }
 
     void Update()
     {
         
         HandleMovementInput();
+
     }
 
     void HandleMovementInput()
@@ -60,6 +67,8 @@ public class MovementScript : MonoBehaviour
             transform.localScale = currScale;
 
             moveSpeed += speedIncrease;
+            currentScore++;
+
         }
     }
 }
