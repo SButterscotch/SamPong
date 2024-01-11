@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - border
+  - ball
+  - borderX
   layers:
   - Default
   - TransparentFX

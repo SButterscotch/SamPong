@@ -21,7 +21,9 @@ public class glow : MonoBehaviour
         if (move)
         {
             lighting.intensity.value = 25f;
-        }else{
+        }
+        else
+        {
             lighting.intensity.value -= 0.5f;
         }
     }
