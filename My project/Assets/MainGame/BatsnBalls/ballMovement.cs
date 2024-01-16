@@ -13,6 +13,9 @@ public class ballMovement : MonoBehaviour
     private float speedmultiplyerx = 2f;
     private float speedmultiplyery = 2f;
 
+    public AudioSource audioSource;
+    public AudioClip hit;
+
 
     void Start()
     {
@@ -45,6 +48,8 @@ public class ballMovement : MonoBehaviour
         {
             speedmultiplyerx = -speedmultiplyerx;
             collided = true;
+            audioSource.clip = hit;
+            audioSource.Play();
 
 //If hit player then increase speed
 
