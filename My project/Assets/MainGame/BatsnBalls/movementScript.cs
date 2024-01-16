@@ -23,11 +23,11 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         
-        HandleInput();
+        HandleMovementInput();
 
     }
 
-    void HandleInput()
+    void HandleMovementInput()
     {
         
         moving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);

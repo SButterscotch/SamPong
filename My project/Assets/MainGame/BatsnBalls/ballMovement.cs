@@ -31,7 +31,6 @@ public class ballMovement : MonoBehaviour
     {
         rb.velocity = new Vector2((rb.velocity.x + moveSpeed) * speedmultiplyerx * Time.deltaTime, (rb.velocity.y + moveSpeed) * speedmultiplyery * Time.deltaTime);
 
-        toMenu();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,12 +64,4 @@ public class ballMovement : MonoBehaviour
         }
     }
 
-    private void toMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            sceneChanger.ChangeToMenu("menu");
-
-        }
-    }
 }
