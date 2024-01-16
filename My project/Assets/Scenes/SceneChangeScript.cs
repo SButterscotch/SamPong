@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeScript : MonoBehaviour
 {
+
+    private string scene;
     // Call this method to load a new scene
     public void ChangeToScene(string sceneName)
     {
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        scene = sceneName;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        
     }
 
-    public void ChangeToMenu(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-    }
 }
 

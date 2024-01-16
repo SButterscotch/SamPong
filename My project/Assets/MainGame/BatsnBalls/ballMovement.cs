@@ -30,6 +30,8 @@ public class ballMovement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2((rb.velocity.x + moveSpeed) * speedmultiplyerx * Time.deltaTime, (rb.velocity.y + moveSpeed) * speedmultiplyery * Time.deltaTime);
+
+        toMenu();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,6 +62,15 @@ public class ballMovement : MonoBehaviour
         else if(collision.gameObject.CompareTag("borderX") && this.transform.position.x < 0)
         {
             sceneChanger.ChangeToScene("losingScene");
+        }
+    }
+
+    private void toMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            sceneChanger.ChangeToMenu("menu");
+
         }
     }
 }

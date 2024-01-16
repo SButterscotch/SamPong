@@ -9,6 +9,7 @@ public class levelManager : MonoBehaviour
     public string sceneName;
     public void levelChanger()
     {
-        SceneManager.LoadSceneAsync(sceneName);    
+        SceneManager.LoadSceneAsync(sceneName);
+        Time.timeScale = 1;    
     }
 }
