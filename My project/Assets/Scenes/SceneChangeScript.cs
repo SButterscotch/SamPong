@@ -12,7 +12,7 @@ public class SceneChangeScript : MonoBehaviour
     public void ChangeToScene(string sceneName)
     {
         scene = sceneName;
-        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        SceneManager.LoadScene(scene);
         
     }
 

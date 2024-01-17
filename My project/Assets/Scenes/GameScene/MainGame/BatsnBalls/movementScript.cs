@@ -30,13 +30,13 @@ public class MovementScript : MonoBehaviour
     void HandleMovementInput()
     {
         
-        moving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S);
+        moving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow);
         
-        if (moving && Input.GetKey(KeyCode.W))
+        if (moving && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)))
         {
             Movement(1f);
         }
-        else if (moving && Input.GetKey(KeyCode.S))
+        else if (moving && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
         {
             Movement(-1f);
         } else 
