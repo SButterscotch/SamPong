@@ -17,8 +17,6 @@ public class exitScript : MonoBehaviour
     void ExitGame()
     {
 
-        Debug.Log("Exiting the game");
-
 
         Application.Quit();
     }

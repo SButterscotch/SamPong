@@ -5,6 +5,7 @@ using UnityEngine;
 public class fps : MonoBehaviour
 {
     public int targetFPS = 165;
+    public static int showFPS = 165;
 
     void Start()
     {
